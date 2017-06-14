@@ -17,7 +17,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public JsonResult Get(string query)
         {
-            if (query != string.Empty)
+            if (!string.IsNullOrEmpty(query))
                return Json(ReadFile().ToObject<NoteList>().Notes.Where(x => x.Body.Contains(query)));
             return Json(ReadFile());
         }
