@@ -19,7 +19,7 @@ namespace WebApplication1.Controllers
         {
             if (!string.IsNullOrEmpty(query))
                return Json(ReadFile().ToObject<NoteList>().Notes.Where(x => x.Body.Contains(query)));
-            return Json(ReadFile());
+            return Json(ReadFile().ToObject<NoteList>().Notes);
         }
 
         private JObject ReadFile()
